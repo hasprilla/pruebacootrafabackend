@@ -3,4 +3,4 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductoController;
 
-Route::routes('product', ProductoController::class);
+Route::apiResource('products', ProductoController::class);
