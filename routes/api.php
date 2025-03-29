@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ProductoController;
+use App\Http\Controllers\ProductoController;
 
-Route::apiResource('products', ProductoController::class);
+Route::middleware(['api'])->group(function () {
+    Route::apiResource('products', ProductoController::class);
+});
