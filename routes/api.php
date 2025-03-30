@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\API\InventarioController;
+use App\Http\Controllers\InventarioController;
 
 
 Route::middleware(['api'])->group(function () {
