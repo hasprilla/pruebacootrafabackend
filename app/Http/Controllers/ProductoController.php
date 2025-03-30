@@ -55,7 +55,7 @@ class ProductoController extends Controller
         $request->validate([
             'inventory_id' => 'required|exists:inventarios,id',
             'name' => 'required|string|max:255',
-            'barcode' => 'required|string|unique:productos,barcode,' . $producto->id,
+            'barcode' => 'required|string' . $producto->id,
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
