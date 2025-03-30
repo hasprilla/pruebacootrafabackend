@@ -26,7 +26,7 @@ class ProductoController extends Controller
             'id' => 'required|string|unique:productos',
             'inventory_id' => 'required|exists:inventarios,id',
             'name' => 'required|string|max:255',
-            'barcode' => 'required|string|unique:productos',
+            'barcode' => 'required|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
         ]);
