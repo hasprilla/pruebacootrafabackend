@@ -10,12 +10,9 @@ class Inventario extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name'
     ];
 
-    protected $keyType = 'string';
-    public $incrementing = false;
 
     public function productos()
     {

@@ -23,7 +23,6 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required|string|unique:productos',
             'inventory_id' => 'required|exists:inventarios,id',
             'name' => 'required|string|max:255',
             'barcode' => 'required|string',

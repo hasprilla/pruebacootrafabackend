@@ -9,15 +9,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('inventory_id');
+            $table->id();
+            $table->unsignedBigInteger('inventory_id');
             $table->string('name');
             $table->string('barcode')->unique();
             $table->decimal('price', 8, 2);
             $table->integer('quantity');
             $table->timestamps();
 
-            $table->foreign('inventory_id')->references('id')->on('inventarios');
+
+            $table->foreign('inventory_id')->references('id')->on('inventarios')->onDelete('cascade');
         });
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,16 +12,12 @@ class Producto extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'inventory_id',
+        'inventory_id', // Quitamos 'id' ya que será autoincremental
         'name',
         'barcode',
         'price',
         'quantity'
     ];
-
-    protected $keyType = 'string';
-    public $incrementing = false;
 
     public function inventario()
     {
