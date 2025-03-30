@@ -28,6 +28,7 @@ class InventarioController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            // No se incluye 'id' en la validación
         ]);
 
         if ($validator->fails()) {
@@ -37,7 +38,10 @@ class InventarioController extends Controller
             ], 422);
         }
 
-        $inventario = Inventario::create($request->all());
+        $inventario = Inventario::create([
+            'name' => $request->name
+            // No se asigna 'id' manualmente
+        ]);
 
         return response()->json([
             'status' => 'success',
@@ -80,8 +84,8 @@ class InventarioController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'id' => 'sometimes|required|string|unique:inventarios,id,' . $id,
             'name' => 'sometimes|required|string|max:255',
+            // No se valida el 'id'
         ]);
 
         if ($validator->fails()) {
@@ -91,7 +95,10 @@ class InventarioController extends Controller
             ], 422);
         }
 
-        $inventario->update($request->all());
+        $inventario->update([
+            'name' => $request->name
+            // No se actualiza el 'id'
+        ]);
 
         return response()->json([
             'status' => 'success',
